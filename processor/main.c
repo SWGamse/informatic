@@ -17,14 +17,7 @@ int main(void)
     int memory[256] = {0}; // инициализация массива памяти
     int i = 0;
 
-    FILE *program = fopen("program.txt", "r"); //получение указателя на файл и проверка его наличия
-    if (program == NULL)
-    {
-        printf("File not found!\n");
-        return 0;
-    }
-    while (i < 256 && fscanf(program, "%d", &memory[i]) == 1) i++; // перенос комманд в память
-    fclose(program);
+    while (i < 256 && scanf("%d", &memory[i]) == 1) i++; // перенос комманд в память
 
     //инициализация cpu_state
     cpu_state[0] = 6;
